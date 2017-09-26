@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="columns" id="search">
+    <h1>Products</h1>
+    <p>
+        John Papa and Ward Bell demonstrate writing an application in Angular. Follow along as they build a form-based, customer
+        management app from scratch. Create visual components that display data and respond to user input with data binding,
+        write a service to retrieve the data over HTTP, organize the code in modules, and test it. You'll complete exercises
+        along the way to lock in concepts and test your understanding.      
+    </p>
+
+    <form #form="ngForm" (ngSubmit)="addProduct(form.value)">
+      <input type="text" placeholder="Product name" name="title" [(ngModel)]="title">
+      <textarea placeholder="Product description" name="description" [(ngModel)]="description" rows="3"></textarea>
+
+      <button id="btn" type="submit">Add Product</button>
+    </form>
+  </div>
+
+  <div class="columns" id="search">
+    <p id="results-label">{{products.length}} Results</p>
+
+    <ul id="products-list">
+      <li [@productsAnim]="state" *ngFor="let product of products; let i = index">{{product.title}}
+        <img src="assets/delete.png" (click)="removeProduct(i)">
+        <p>{{product.description}}</p>
+      </li>
+    </ul>
+  </div>
+</div>
