@@ -41,7 +41,7 @@ export class ProductsComponent implements OnInit {
     this.description = '';
   }
 
-  removeProduct(product) {
-    this.products.splice(product, 1);
+  removeProduct(id: number) {
+    this.products.splice(id, 1);
   }
 }
